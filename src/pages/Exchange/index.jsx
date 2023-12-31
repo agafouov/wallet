@@ -6,7 +6,7 @@ import {
   useSearchParams,
 } from "react-router-dom";
 
-export default function Swap() {
+export default function Exchange() {
   const [value, setValue] = useState("");
   const [output, setOutput] = useState("0");
 
@@ -36,7 +36,7 @@ export default function Swap() {
       <form className="">
         <div className="unbr e1Tl cdsw">
           <div className="_Nat yhvK">
-            <label for="input" className="dv_2 KU0V">
+            <label htmlFor="input" className="dv_2 KU0V">
               <div className="fGjD">
                 <div className="tt_o">
                   <div className="spEm">
@@ -157,37 +157,37 @@ export default function Swap() {
                   <clipPath id="__lottie_element_14">
                     <path
                       fill="#ffffff"
-                      clip-rule="nonzero"
+                      clipRule="nonzero"
                       d=" M8,-80 C-25.136999130249023,-80 -52,-53.137001037597656 -52,-20 C-52,13.13700008392334 -25.136999130249023,40 8,40 C41.137001037597656,40 68,13.13700008392334 68,-20 C68,-53.137001037597656 41.137001037597656,-80 8,-80"
-                      fill-opacity="1"
+                      fillOpacity="1"
                     ></path>
                   </clipPath>
                   <clipPath id="__lottie_element_17">
                     <path
                       fill="#ffffff"
-                      clip-rule="nonzero"
+                      clipRule="nonzero"
                       d=" M89.99302673339844,-80 C56.85602569580078,-80 29.993024826049805,-53.137001037597656 29.993024826049805,-20 C29.993024826049805,13.13700008392334 56.85602569580078,40 89.99302673339844,40 C123.1300277709961,40 149.99302673339844,13.13700008392334 149.99302673339844,-20 C149.99302673339844,-53.137001037597656 123.1300277709961,-80 89.99302673339844,-80"
-                      fill-opacity="1"
+                      fillOpacity="1"
                     ></path>
                   </clipPath>
                   <clipPath id="__lottie_element_20">
                     <path
                       fill="#ffffff"
-                      clip-rule="nonzero"
+                      clipRule="nonzero"
                       d=" M6,-77 C-27.136999130249023,-77 -54,-50.137001037597656 -54,-17 C-54,16.136999130249023 -27.136999130249023,43 6,43 C39.137001037597656,43 66,16.136999130249023 66,-17 C66,-50.137001037597656 39.137001037597656,-77 6,-77"
-                      fill-opacity="1"
+                      fillOpacity="1"
                     ></path>
                   </clipPath>
                   <clipPath id="__lottie_element_23">
                     <path
                       fill="#ffffff"
-                      clip-rule="nonzero"
+                      clipRule="nonzero"
                       d=" M89.99302673339844,-77 C56.85602569580078,-77 29.993024826049805,-50.137001037597656 29.993024826049805,-17 C29.993024826049805,16.136999130249023 56.85602569580078,43 89.99302673339844,43 C123.1300277709961,43 149.99302673339844,16.136999130249023 149.99302673339844,-17 C149.99302673339844,-50.137001037597656 123.1300277709961,-77 89.99302673339844,-77"
-                      fill-opacity="1"
+                      fillOpacity="1"
                     ></path>
                   </clipPath>
                 </defs>
-                <g clip-path="url(#__lottie_element_12)">
+                <g clipPath="url(#__lottie_element_12)">
                   <g
                     style={{ display: "block" }}
                     transform="matrix(1,0,0,1,60,60)"
@@ -196,79 +196,79 @@ export default function Swap() {
                     <g opacity="1" transform="matrix(3,0,0,3,0,0)">
                       <path
                         fill="rgb(103,166,229)"
-                        fill-opacity="0.16"
+                        fillOpacity="0.16"
                         d=" M20,0 C20,0 20,0 20,0 C20,11.038000106811523 11.038000106811523,20 0,20 C0,20 0,20 0,20 C-11.038000106811523,20 -20,11.038000106811523 -20,0 C-20,0 -20,0 -20,0 C-20,-11.038000106811523 -11.038000106811523,-20 0,-20 C0,-20 0,-20 0,-20 C11.038000106811523,-20 20,-11.038000106811523 20,0z"
                       ></path>
                     </g>
                   </g>
                   <g
-                    clip-path="url(#__lottie_element_23)"
+                    clipPath="url(#__lottie_element_23)"
                     style={{ display: "none" }}
                     transform="matrix(0,-1,1,0,77,149.99302673339844)"
                     opacity="0.00007749488063140576"
                   >
                     <g opacity="1" transform="matrix(3,0,0,3,0,0)">
                       <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        fill-opacity="0"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        fillOpacity="0"
                         stroke="rgb(84,147,208)"
-                        stroke-opacity="1"
-                        stroke-width="2"
+                        strokeOpacity="1"
+                        strokeWidth="2"
                         d=" M-2.5,-4.5 C-2.5,-4.5 -7,0 -7,0 M-2.5,4.5 C-2.5,4.5 -7,0 -7,0 M-7,0 C-7,0 7,0 7,0"
                       ></path>
                     </g>
                   </g>
                   <g
-                    clip-path="url(#__lottie_element_20)"
+                    clipPath="url(#__lottie_element_20)"
                     style={{ display: "block" }}
                     transform="matrix(0,-1,1,0,77,60.85714340209961)"
                     opacity="1"
                   >
                     <g opacity="1" transform="matrix(3,0,0,3,0,0)">
                       <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        fill-opacity="0"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        fillOpacity="0"
                         stroke="rgb(84,147,208)"
-                        stroke-opacity="1"
-                        stroke-width="2"
+                        strokeOpacity="1"
+                        strokeWidth="2"
                         d=" M-2.5,-4.5 C-2.5,-4.5 -7,0 -7,0 M-2.5,4.5 C-2.5,4.5 -7,0 -7,0 M-7,0 C-7,0 7,0 7,0"
                       ></path>
                     </g>
                   </g>
                   <g
-                    clip-path="url(#__lottie_element_17)"
+                    clipPath="url(#__lottie_element_17)"
                     style={{ display: "none" }}
                     transform="matrix(0,1,-1,0,40,-29.993024826049805)"
                     opacity="0.00007749488063140576"
                   >
                     <g opacity="1" transform="matrix(3,0,0,3,0,0)">
                       <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        fill-opacity="0"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        fillOpacity="0"
                         stroke="rgb(84,147,208)"
-                        stroke-opacity="1"
-                        stroke-width="2"
+                        strokeOpacity="1"
+                        strokeWidth="2"
                         d=" M-2.5,-4.5 C-2.5,-4.5 -7,0 -7,0 M-2.5,4.5 C-2.5,4.5 -7,0 -7,0 M-7,0 C-7,0 7,0 7,0"
                       ></path>
                     </g>
                   </g>
                   <g
-                    clip-path="url(#__lottie_element_14)"
+                    clipPath="url(#__lottie_element_14)"
                     style={{ display: "block" }}
                     transform="matrix(0,1,-1,0,40,58.85714340209961)"
                     opacity="1"
                   >
                     <g opacity="1" transform="matrix(3,0,0,3,0,0)">
                       <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        fill-opacity="0"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        fillOpacity="0"
                         stroke="rgb(84,147,208)"
-                        stroke-opacity="1"
-                        stroke-width="2"
+                        strokeOpacity="1"
+                        strokeWidth="2"
                         d=" M-2.5,-4.5 C-2.5,-4.5 -7,0 -7,0 M-2.5,4.5 C-2.5,4.5 -7,0 -7,0 M-7,0 C-7,0 7,0 7,0"
                       ></path>
                     </g>
@@ -282,7 +282,7 @@ export default function Swap() {
       <form className="">
         <div className="unbr e1Tl cdsw">
           <div className="_Nat yhvK">
-            <label for="input" className="dv_2 KU0V">
+            <label htmlFor="input" className="dv_2 KU0V">
               <div className="tt_o">
                 <div className="spEm">
                   <svg

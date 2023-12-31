@@ -1,119 +1,53 @@
-import { React, useState, useEffect } from "react";
-import {
-  BrowserRouter as Router,
-  Route,
-  useNavigate,
-  useSearchParams,
-  useLocation
-} from "react-router-dom";
-
-// function Params() {
-//   const location = useLocation();
-//   const params = new URLSearchParams(location.search);
-//   const assetCurrency = params.get("assetCurrency");
-//   return { assetCurrency };
-// }
+import React, { useRef, useState, useEffect } from "react";
+import { useSearchParams, useLocation } from "react-router-dom";
 
 export default function ReceiverSearch() {
-  // const [searchParams, setSearchParams] = useSearchParams();
-  // const [input, setInput] = useState("");
-  // const [placeHolder, setPlaceHolder] = useState("Enter TON address or domain");
-  // const [showButton, setShowButton] = useState(false);
-  // const [inputHistory, setInputHistory] = useState([]);
-
-  // const handleChange = (event) => {
-  //   setInput(event.target.value);
-  //   setPlaceHolder(event.target.value);
-  //   setInputHistory([...inputHistory, event.target.value]);
-  //   setShowButton(event.target.value !== "");
-  //   if (!event.target.value) {
-  //     setPlaceHolder("Enter TON address or domain");
-  //   }
-  // };
-
-  // const handleClear = () => {
-  //   setInput("");
-  //   setPlaceHolder("Enter TON address or domain");
-  //   setShowButton(false);
-  // };
-
-  // useEffect(() => {
-  //   if (input !== "") {
-  //     searchParams.set("address", input);
-  //   } else if (inputHistory.length > 0) {
-  //     searchParams.set("address", "");
-  //   }
-
-  //   setSearchParams(searchParams, { replace: true });
-  // }, [input, searchParams, setSearchParams]);
-
-  // const handleKeyDown = (event) => {
-  //   if (event.key === "Enter") {
-  //     event.preventDefault();
-  //   }
-  // };
-  
-  
-  
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
+  const location = useLocation();
+  const textAreaRef = useRef();
   const [searchParams, setSearchParams] = useSearchParams();
-  const [input, setInput] = useState("");
-  const [showButton, setShowButton] = useState(false);
-  const [inputHistory, setInputHistory] = useState([]);
+  const [inputValue, setInputValue] = useState("");
+  const pathElements = location.pathname.split('/');
+  const element = pathElements[2]; // получаем 'TON'
 
-  const handleChange = (event) => {
-    try {
-      setInput(event.target.value);
-    } catch (err) {
-      console.error('Input failed: ', err);
-    }
-    setInputHistory([...inputHistory, event.target.value]);
-    setShowButton(event.target.value !== "");
-  };
-
-  const handlePaste = async () => {
-    try {
-      const text = await navigator.clipboard.readText();
-      setInput(text);
-      setShowButton(true);
-    } catch (err) {
-      console.error('Failed to read clipboard contents in your browser: ', err);
-    }
-  };
-
-  const handleClear = () => {
-    searchParams.set("address", "");
-    setShowButton(false);
-  };
-
+  // Получаем значение адреса из URL при загрузке компонента
   useEffect(() => {
-    if (input !== "") {
-      searchParams.set("address", input);
-    } else if (inputHistory.length > 0) {
-      searchParams.set("address", "");
+    const address = searchParams.get("address");
+    const textArea = textAreaRef.current;
+    textArea.focus();
+    textArea.setSelectionRange(textArea.value.length, textArea.value.length);
+    if (address !== null) {
+      setInputValue(address);
     }
-
-    setSearchParams(searchParams, { replace: true });
-  }, [input, searchParams, setSearchParams]);
+  }, []);
 
   const handleKeyDown = (event) => {
     if (event.key === "Enter") {
       event.preventDefault();
     }
   };
+
+  // Очищаем поле ввода и URL
+  const handleClear = () => {
+    setInputValue('');
+    setSearchParams({ address: '' }, 'replace');
+    textAreaRef.current.focus();
+  };
+
+  // Обновляем URL и состояние ввода при изменении пользователем
+  const handleInputChange = (event) => {
+    const { value } = event.target;
+    setInputValue(value);
+    setSearchParams({ address: value }, 'replace');
+  };
+
+  // const handlePaste = async () => {
+  //   try {
+  //     const text = await navigator.clipboard.readText();
+  //     setSearchParams({ address: text }, 'replace');
+  //   } catch (err) {
+  //     console.error('Failed to read clipboard contents in your browser: ', err);
+  //   }
+  // };
 
   return (
     <div style={{ height: "initial", overflowY: "auto" }}>
@@ -122,16 +56,18 @@ export default function ReceiverSearch() {
           <div className="KAwR">
             <textarea
               className="VmE2 eG0c xSKl"
-              placeholder="Enter TON address or domain"
-              autocomplete="off"
+              placeholder={element === 'TON' && ('Enter TON address or domain') || element === 'USDT' && ('Enter USDT TRC20 address') || element === 'BTC' && ('Enter BTC address')}
+              autoComplete="off"
               onKeyDown={handleKeyDown}
               value={searchParams.get("address")}
-              onChange={handleChange}
+              onChange={handleInputChange}
+              ref={textAreaRef}
+              autoFocus
             ></textarea>
-            {searchParams.get("address") &&  (<div className="pp0Q zU7T">{searchParams.get("address")}</div>)|| (<div className="pp0Q zU7T">Enter TON address or domain</div>)}
+            {searchParams.get("address") && (<div className="pp0Q zU7T">{searchParams.get("address")}</div>) || element === 'TON' && (<div className="pp0Q zU7T">Enter TON address or domain</div>) || element === 'USDT' && (<div className="pp0Q zU7T">Enter USDT TRC20 address</div>) || element === 'BTC' && (<div className="pp0Q zU7T">Enter BTC address</div>)}
           </div>
           <div className="_inR">
-            {showButton && (
+            {searchParams.get("address") && (
               <button onClick={handleClear} type="button" className="p_kJ uAyC">
                 <svg
                   width="28"
@@ -143,17 +79,19 @@ export default function ReceiverSearch() {
                   <path
                     d="m6 6 16 16M6 22 22 6"
                     stroke="currentColor"
-                    stroke-width="1.8"
-                    stroke-linecap="round"
+                    strokeWidth="1.8"
+                    strokeLinecap="round"
                   ></path>
                 </svg>
               </button>
-            ) || (<button onClick={handlePaste} class="bBuk bv0r" type="button">paste</button>)}
+            )
+            // || (<button onClick={handlePaste} className="bBuk bv0r" type="button">paste</button>)
+            }
           </div>
         </form>
       </div>
       <section className="E3zb">
-        {showButton && (
+        {searchParams.get("address") && (
           <div className="Yx5s">
             <div className="XAp3 nEhw">
               <svg
@@ -165,8 +103,8 @@ export default function ReceiverSearch() {
                 style={{ color: "var(--tg-theme-subtitle-text-color)" }}
               >
                 <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
+                  fillRule="evenodd"
+                  clipRule="evenodd"
                   d="M12.78 3.26c-.89.396-1.572 1.577-2.937 3.94L3.435 18.3c-1.364 2.363-2.046 3.544-1.945 4.514a3 3 0 0 0 1.22 2.113c.79.573 2.153.573 4.882.573h12.817c2.728 0 4.092 0 4.88-.573a3 3 0 0 0 1.221-2.113c.102-.97-.58-2.151-1.944-4.514L18.157 7.2c-1.364-2.363-2.046-3.544-2.937-3.94a3 3 0 0 0-2.44 0Zm2.301 7.34-.114 6.45a.967.967 0 0 1-1.933 0l-.114-6.45a1.08 1.08 0 1 1 2.161 0Zm.17 9.9a1.25 1.25 0 1 1-2.5 0 1.25 1.25 0 0 1 2.5 0Z"
                   fill="currentColor"
                 ></path>
@@ -174,7 +112,7 @@ export default function ReceiverSearch() {
             </div>
             <div className="Nzze w4i3">
               <div className="d253">Invalid Address</div>
-              <div className="Q8s3 H1dE">Enter address belonging to TON </div>
+              <div className="Q8s3 H1dE">{element === 'TON' && ('Enter address belonging to TON ') || element === 'USDT' && ('Enter address belonging to USDT TRC20 ') || element === 'BTC' && ('Enter address belonging to BTC ')}</div>
             </div>
           </div>
         )}
