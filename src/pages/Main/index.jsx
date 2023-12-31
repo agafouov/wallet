@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { BrowserRouter as Router, Route, useNavigate } from "react-router-dom";
+import AButton from "../../components/AButton";
 import gsap from "gsap";
 
 export default function Main() {
@@ -60,11 +61,7 @@ export default function Main() {
       </div>
       <div className="VFOP EFAG eF4q YE3Y">
         <section className="_LuN ElzW">
-          <button
-            onClick={() => navigate("/send-options")}
-            data-testid="send-btn"
-            className="r2DG V7r1 EGpD Kp43 aPJp x4dM dDTU"
-          >
+          <AButton onclick={() => navigate("/send-options")}>
             <div className="P13Q">
               <div className="dEpV qSw9">
                 <span className="S5cS GnzX">
@@ -92,8 +89,7 @@ export default function Main() {
                 </div>
               </div>
             </div>
-            <div className="gtBI"></div>
-          </button>
+          </AButton>
           <button
             onClick={() => navigate("/choose_asset/receive")}
             className="r2DG V7r1 EGpD Kp43 aPJp x4dM dDTU"
